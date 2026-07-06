@@ -64,7 +64,7 @@
               updateBannerVisibility();
             }
 
-            var buildUrl = "./Build";
+            var buildUrl = "Build";
             var loaderUrl = buildUrl + "/webgl.loader.js";
             var config = {
               dataUrl: buildUrl + "/webgl.data",
@@ -101,18 +101,10 @@
 
 
             } else {
-              // Desktop style: Render the game canvas to fill the browser viewport
-              canvas.style.width = "80%";
-              canvas.style.height = "80%";
-              // Set canvas drawing buffer size to match displayed size * devicePixelRatio
-              var dpr = window.devicePixelRatio || 1;
-              // Use setTimeout to ensure layout has been applied and client sizes are available
-              setTimeout(function() {
-                try {
-                  canvas.width = Math.max(1, Math.floor(canvas.clientWidth * dpr));
-                  canvas.height = Math.max(1, Math.floor(canvas.clientHeight * dpr));
-                } catch (e) {}
-              }, 0);
+              // Desktop style: Render the game canvas in a window that can be maximized to fullscreen:
+
+              canvas.style.width = "1200px";
+              canvas.style.height = "1200px";
             }
 
             loadingBar.style.display = "block";
